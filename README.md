@@ -266,6 +266,23 @@ int main(int argc, char **argv)
 <img width="1121" height="235" alt="image" src="https://github.com/user-attachments/assets/4141f6ac-3a72-4b8c-a8bf-ea62bcbad22b" />
 
 
-## RESULT:
+## Comparison of Block Sizes
 
-All configurations produced correct sums. Execution times were 0.000976 s (1023), 0.000912 s (1024), 0.000922 s (512), and 0.000916 s (256). The 1024-thread configuration was fastest in this run. When each thread handles two elements with block.x = 256, 512 elements are processed per block, potentially reducing execution time.
+| Block Size | Number of Blocks | GPU Time (sec) | Result |
+|---:|---:|---:|---|
+| 256 | 65536 | 0.000934 | Arrays match |
+| 512 | 32768 | 0.000948 | Arrays match |
+| 1023 | 16401 | 0.000962 | Arrays match |
+| 1024 | 16384 | 0.000915 | Arrays match |
+
+## Explanation
+
+- **256 threads:** Requires more blocks to process the array.
+- **512 threads:** Uses fewer blocks than 256, but takes slightly more time in this run.
+- **1023 threads:** Is not divisible by 32, so the last warp has one inactive thread.
+- **1024 threads:** Is divisible by 32 and requires the fewest blocks among these configurations.
+
+### Conclusion
+
+All four configurations produce correct results. The 1024-thread block is the fastest in the given output. Small timing differences may occur due to GPU scheduling and measurement variations.
+Thus, Implementation of sum arrays on host and device is done in nvcc cuda using random number.
