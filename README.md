@@ -259,6 +259,9 @@ int main(int argc, char **argv)
 # 1024
 <img width="1052" height="218" alt="image" src="https://github.com/user-attachments/assets/61a21e53-cb86-4f6a-8444-78f720d08175" />
 
+# 512
+<img width="1081" height="230" alt="image" src="https://github.com/user-attachments/assets/6004834d-9d53-44c0-81ce-729cd35f31a2" />
+
 # 256
 <img width="1121" height="235" alt="image" src="https://github.com/user-attachments/assets/4141f6ac-3a72-4b8c-a8bf-ea62bcbad22b" />
 
