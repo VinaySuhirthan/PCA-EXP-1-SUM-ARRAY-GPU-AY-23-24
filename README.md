@@ -267,4 +267,5 @@ int main(int argc, char **argv)
 
 
 ## RESULT:
-Thus, Implementation of sum arrays on host and device is done in nvcc cuda using random number.
+
+All configurations produced correct sums. Execution times were 0.000976 s (1023), 0.000912 s (1024), 0.000922 s (512), and 0.000916 s (256). The 1024-thread configuration was fastest in this run. When each thread handles two elements with block.x = 256, 512 elements are processed per block, potentially reducing execution time.
